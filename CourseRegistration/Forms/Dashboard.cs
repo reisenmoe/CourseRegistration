@@ -18,9 +18,8 @@ namespace CourseRegistration
             InitializeComponent();
 
             //Change view based on role type
-            pAdmin.Visible = GlobalApplication.emMyRole == DataAccess.RoleTypes.Admin;
-            pNonAdmin.Visible = GlobalApplication.emMyRole != DataAccess.RoleTypes.Admin;
-            btnViewStudents.Visible = GlobalApplication.emMyRole == DataAccess.RoleTypes.Tutor;
+            pAdmin.Visible = GlobalApplication.emMyRole == CourseRegistration.RoleTypes.Admin;
+            pNonAdmin.Visible = GlobalApplication.emMyRole != CourseRegistration.RoleTypes.Admin;
 
             //Set welcome message
             lbWelcome.Text = "Welcome, " + GlobalApplication.cMyUser.FirstName;
@@ -47,7 +46,7 @@ namespace CourseRegistration
         #region Students and Tutors
         public void Dashboard_MyCourse(object sender, EventArgs args)
         {
-            if (GlobalApplication.emMyRole == DataAccess.RoleTypes.Tutor)
+            if (GlobalApplication.emMyRole == CourseRegistration.RoleTypes.Tutor)
             {
                 this.SwitchFormTo<ViewStudents>((context) =>
                 {
@@ -67,7 +66,7 @@ namespace CourseRegistration
         #region Admins
         public void Dashboard_Faculty(object sender, EventArgs args)
         {
-            this.SwitchFormTo<CourseView>((context) =>
+            this.SwitchFormTo<ManageFaculty>((context) =>
             {
                 context.Show();
             });

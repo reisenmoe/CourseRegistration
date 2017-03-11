@@ -63,6 +63,7 @@
             this.cbCourses.Name = "cbCourses";
             this.cbCourses.Size = new System.Drawing.Size(250, 21);
             this.cbCourses.TabIndex = 1;
+            this.cbCourses.SelectedIndexChanged += new System.EventHandler(this.CourseView_OnSelectCourse);
             // 
             // label2
             // 
@@ -180,6 +181,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.CourseView_Close);
             // 
             // lbTutorEmail
             // 

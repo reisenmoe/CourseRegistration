@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAccess;
+using CourseRegistration;
 
 namespace CourseRegistration
 {
@@ -22,6 +22,7 @@ namespace CourseRegistration
             tbLastName.Text = GlobalApplication.cMyUser.LastName;
             tbContact.Text = GlobalApplication.cMyUser.ContactNumber;
             tbAddress.Text = GlobalApplication.cMyUser.Address;
+            tbEmail.Text = GlobalApplication.cMyUser.Email;
             dtpDateOfBirth.Value = GlobalApplication.cMyUser.DateOfBirth.Value;
         }
 
@@ -84,6 +85,9 @@ namespace CourseRegistration
             SharedManager.Update(GlobalApplication.cMyUser,
                                 u => u.FirstName, u => u.LastName, u => u.FullName,
                                 u => u.ContactNumber, u => u.Address, u => u.DateOfBirth);
+
+            //Show message
+            MessageBox.Show("Profile updated.");
         }
         public void MyInfo_Close(object sender, EventArgs args)
         {

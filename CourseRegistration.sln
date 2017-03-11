@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseRegistration", "CourseRegistration\CourseRegistration.csproj", "{EC31A761-E63A-4C6D-A03B-853DC98446CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DataAccess\DAL.csproj", "{312B88FA-69F3-4A6A-8F3C-B7FAE6B37E60}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{EC31A761-E63A-4C6D-A03B-853DC98446CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC31A761-E63A-4C6D-A03B-853DC98446CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC31A761-E63A-4C6D-A03B-853DC98446CC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{312B88FA-69F3-4A6A-8F3C-B7FAE6B37E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{312B88FA-69F3-4A6A-8F3C-B7FAE6B37E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{312B88FA-69F3-4A6A-8F3C-B7FAE6B37E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{312B88FA-69F3-4A6A-8F3C-B7FAE6B37E60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

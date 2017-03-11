@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess
+namespace CourseRegistration
 {
     using System;
     using System.Collections.Generic;

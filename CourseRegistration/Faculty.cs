@@ -7,16 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataAccess
+namespace CourseRegistration
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Student_Course
+    public partial class Faculty
     {
-        public decimal StudentCourse_ID { get; set; }
-        public decimal CourseSchedule_ID { get; set; }
-        public decimal User_ID { get; set; }
+        public decimal Faculty_ID { get; set; }
+        public string Faculty_Name { get; set; }
         public decimal CreatedBy { get; set; }
         public System.DateTime CreatedDateTime { get; set; }
         public decimal ModifiedBy { get; set; }

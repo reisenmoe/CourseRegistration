@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAccess;
+using CourseRegistration;
 
 namespace CourseRegistration
 {
@@ -41,7 +41,7 @@ namespace CourseRegistration
             //Fill labels
             FillLabels(cbCourses.SelectedIndex);
         }
-        public void CourseView_Close()
+        public void CourseView_Close(object sender, EventArgs args)
         {
             this.Close();
         }

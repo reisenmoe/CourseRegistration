@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAccess;
+using CourseRegistration;
 
 namespace CourseRegistration
 {
@@ -125,6 +125,9 @@ namespace CourseRegistration
                 showMessage("Failed to create user_role");
                 return;
             }
+
+            //Show message
+            MessageBox.Show("Successfully registered new user: " + user.Student_ID);
 
             //Clear inputs
             ClearInputs();

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAccess;
+using CourseRegistration;
 using Renko;
 
 namespace CourseRegistration
@@ -24,7 +24,7 @@ namespace CourseRegistration
         {
             string username = tbUsername.Text;
             string password = tbPassword.Text;
-
+            
             //Try logging in
             User user = UserManager.Login(username, password);
             //If failed logging in

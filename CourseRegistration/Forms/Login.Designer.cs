@@ -58,6 +58,7 @@ namespace CourseRegistration
             // tbUsername
             // 
             this.tbUsername.Location = new System.Drawing.Point(98, 23);
+            this.tbUsername.MaxLength = 8;
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(133, 20);
             this.tbUsername.TabIndex = 2;
@@ -65,7 +66,9 @@ namespace CourseRegistration
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(98, 48);
+            this.tbPassword.MaxLength = 10;
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(133, 20);
             this.tbPassword.TabIndex = 3;
             // 

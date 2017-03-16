@@ -22,13 +22,28 @@ namespace CourseRegistration
                     {
                         dbContext.Entry(target).Property(p).IsModified = true;
                     }
-
-                    dbContext.Entry(target);
+                    
+                    dbContext.Entry(target).State = System.Data.Entity.EntityState.Modified;
                     dbContext.SaveChanges();
                 }
                 catch (Exception e)
                 {
                     throw e;
+                }
+            }
+        }
+
+        public static void DoDBOperation(Action<KeunhongInstituteDBEntities> operation, Action<Exception> onCatch = null)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                try
+                {
+                    operation(dbContext);
+                }
+                catch(Exception e)
+                {
+                    onCatch(e);
                 }
             }
         }

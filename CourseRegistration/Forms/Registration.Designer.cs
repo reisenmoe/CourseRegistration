@@ -154,6 +154,7 @@
             // tbStudentID
             // 
             this.tbStudentID.Location = new System.Drawing.Point(86, 6);
+            this.tbStudentID.MaxLength = 8;
             this.tbStudentID.Name = "tbStudentID";
             this.tbStudentID.Size = new System.Drawing.Size(265, 20);
             this.tbStudentID.TabIndex = 11;
@@ -161,6 +162,7 @@
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(86, 29);
+            this.tbPassword.MaxLength = 10;
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(265, 20);
             this.tbPassword.TabIndex = 12;

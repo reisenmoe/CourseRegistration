@@ -37,12 +37,41 @@ namespace CourseRegistration
             }
             return true;
         }
+
+        public static List<Course> GetAllCourses()
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Courses.Where(c => c.IsActive).ToList();
+            }
+        }
+
+        public static int GetCourseCount()
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Courses.Where(c => c.IsActive).Count();
+            }
+        }
     }
 
     #region Extensions
     public static class CourseExtensions
     {
-        
+        public static Faculty GetFaculty(this Course context)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Faculties.FirstOrDefault(f => f.Faculty_ID.Equals(context.Faculty_ID));
+            }
+        }
+        public static List<Course_Schedule> GetSchedules(this Course context)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Course_Schedule.Where(cs => cs.Course_ID.Equals(context.Course_ID)).ToList();
+            }
+        }
     }
     #endregion
     #endregion
@@ -84,8 +113,17 @@ namespace CourseRegistration
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
                 //Return all course_schedules where its teacher_id equals the given user's id.
-                var selections = dbContext.Course_Schedule.Where(s => s.Teacher_ID.Equals(user.User_ID));
+                var selections = dbContext.Course_Schedule.Where(s => s.Teacher_ID.Equals(user.User_ID) && s.IsActive);
                 return selections.ToList();
+            }
+        }
+
+        public static List<Course_Schedule> GetAllSchedules()
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                //Get all schedules and return
+                return dbContext.Course_Schedule.Where(cs => cs.IsActive).ToList();
             }
         }
     }
@@ -121,7 +159,7 @@ namespace CourseRegistration
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
                 //This holds student_courses of all students booked on this course_schedule.
-                var firstSelection = dbContext.Student_Course.Where(s => s.CourseSchedule_ID.Equals(context.CourseSchedule_ID));
+                var firstSelection = dbContext.Student_Course.Where(s => s.CourseSchedule_ID.Equals(context.CourseSchedule_ID) && s.IsActive);
 
                 List<User> students = new List<User>();
                 foreach (Student_Course sc in firstSelection)
@@ -129,6 +167,13 @@ namespace CourseRegistration
                     students.Add(sc.GetStudent());
                 }
                 return students;
+            }
+        }
+        public static List<Student_Course> GetStudentCourses(this Course_Schedule context)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Student_Course.Where(sc => sc.CourseSchedule_ID.Equals(context.CourseSchedule_ID)).ToList();
             }
         }
     }
@@ -170,7 +215,7 @@ namespace CourseRegistration
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
                 //Return all course_schedules where its teacher_id equals the given user's id.
-                var selections = dbContext.Student_Course.Where(s => s.User_ID.Equals(user.User_ID));
+                var selections = dbContext.Student_Course.Where(s => s.User_ID.Equals(user.User_ID) && s.IsActive);
                 return selections.ToList();
             }
         }
@@ -183,7 +228,7 @@ namespace CourseRegistration
         {
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
-                return dbContext.Users.FirstOrDefault(u => u.User_ID.Equals(context.User_ID));
+                return dbContext.Users.FirstOrDefault(u => u.User_ID.Equals(context.User_ID) && u.IsActive);
             }
         }
         public static Course_Schedule GetSchedule(this Student_Course context)

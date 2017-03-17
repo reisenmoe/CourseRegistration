@@ -46,6 +46,25 @@ namespace Renko
         {
             return gridView.DataSource as BindingSource;
         }
+        public static void ToggleColumnSort(this DataGridView context, bool on)
+        {
+            for (int i = 0; i < context.Columns.Count; i++)
+            {
+                context.Columns[i].SortMode = (on ? DataGridViewColumnSortMode.Automatic | DataGridViewColumnSortMode.NotSortable);
+            }
+        }
+        public static void ToggleColumnSort(this DataGridView context, int targetColumnIndex, bool on)
+        {
+            context.Columns[targetColumnIndex].SortMode = (on ? DataGridViewColumnSortMode.Automatic | DataGridViewColumnSortMode.NotSortable);
+        }
+        public static bool SelectedRow(this DataGridView context)
+        {
+            return context.SelectedRows.Count > 0;
+        }
+        public static int SelectedRowIndex(this DataGridView context)
+        {
+            return context.CurrentCell.RowIndex;
+        }
         #endregion
 
         #region Form
@@ -59,6 +78,19 @@ namespace Renko
             T otherForm = new T();
             otherForm.Closed += (sender, args) => callback(context);
             otherForm.Show();
+        }
+        /**
+         * Does NOT hide the current context form and display the other form over the context.
+         * callback is called with the parameter (context) when the other form is closed.
+         */
+        public static void OverlayForm<T>(this Form context, bool allowMultiInteraction, Action<Form> callback) where T : Form, new()
+        {
+            T otherForm = new T();
+            otherForm.Closed += (sender, args) => callback(context);
+            if (allowMultiInteraction)
+                otherForm.Show();
+            else
+                otherForm.ShowDialog();
         }
         #endregion
     }

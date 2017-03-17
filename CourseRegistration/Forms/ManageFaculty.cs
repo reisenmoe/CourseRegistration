@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CourseRegistration;
+using Renko;
 
 namespace CourseRegistration
 {
@@ -138,6 +139,7 @@ namespace CourseRegistration
             //Add column
             dgvFaculties.Columns.Add("FacultyID", "Faculty ID");
             dgvFaculties.Columns.Add("FacultyName", "Faculty name");
+            dgvFaculties.ToggleColumnSort(false);
 
             //Add rows
             for(int i=0; i<lcFaculties.Count; i++)

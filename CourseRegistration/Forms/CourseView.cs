@@ -33,6 +33,8 @@ namespace CourseRegistration
 
             //Set first selection
             cbCourses.SelectedIndex = 0;
+
+            cbCourses.Refresh();
         }
 
         #region Button events

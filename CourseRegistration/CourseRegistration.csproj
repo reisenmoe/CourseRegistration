@@ -86,6 +86,7 @@
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\JsonRelated\Attribute.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\JsonRelated\JsonUtility.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\JsonRelated\SimpleJSON.cs" />
+    <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\MD5Encryption.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\ObjectsToField\Attribute.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\ObjectsToField\ObjectsToField.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28VS%29\Debug.cs" />
@@ -159,6 +160,30 @@
     <Compile Include="Forms\ManageUser.Designer.cs">
       <DependentUpon>ManageUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MC_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MC_Add.Designer.cs">
+      <DependentUpon>MC_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MC_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MC_Edit.Designer.cs">
+      <DependentUpon>MC_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MS_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MS_Add.Designer.cs">
+      <DependentUpon>MS_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MS_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MS_Edit.Designer.cs">
+      <DependentUpon>MS_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MyInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +240,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageUser.resx">
       <DependentUpon>ManageUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MC_Add.resx">
+      <DependentUpon>MC_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MC_Edit.resx">
+      <DependentUpon>MC_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MS_Add.resx">
+      <DependentUpon>MS_Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MS_Edit.resx">
+      <DependentUpon>MS_Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MyInfo.resx">
       <DependentUpon>MyInfo.cs</DependentUpon>

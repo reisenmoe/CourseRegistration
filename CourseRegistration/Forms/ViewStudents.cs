@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CourseRegistration;
+using Renko;
 
 namespace CourseRegistration
 {
@@ -30,6 +31,8 @@ namespace CourseRegistration
 
             //Set first selection
             cbCourses.SelectedValue = cbCourses.Items[0];
+
+            cbCourses.Refresh();
         }
 
         #region Button events
@@ -77,6 +80,7 @@ namespace CourseRegistration
 
             //Set data source
             dgvStudentView.DataSource = dt;
+            dgvStudentView.ToggleColumnSort(false);
 
             //Refresh view
             dgvStudentView.Refresh();

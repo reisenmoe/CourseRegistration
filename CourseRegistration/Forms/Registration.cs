@@ -99,7 +99,7 @@ namespace CourseRegistration
             user.LastName = tbLastName.Text;
             user.FullName = user.FirstName + ' ' + user.LastName;
             user.ModifiedBy = user.CreatedBy;
-            user.Password = tbPassword.Text;
+            user.Password = Renko.MD5Encryption.Encrypt(tbPassword.Text);
             user.Student_ID = tbStudentID.Text;
             //Get created user
             user = UserManager.Create(user);

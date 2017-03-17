@@ -38,7 +38,7 @@ namespace CourseRegistration
         {
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
-                return dbContext.Faculties.ToList();
+                return dbContext.Faculties.Where(f => f.IsActive).ToList();
             }
         }
     }

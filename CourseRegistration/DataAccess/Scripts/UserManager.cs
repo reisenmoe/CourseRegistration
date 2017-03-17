@@ -55,10 +55,11 @@ namespace CourseRegistration
         
         public static User Login(string username, string password)
         {
+            password = Renko.MD5Encryption.Encrypt(password);
+
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
-                //Find a user with username and password
-                return dbContext.Users.FirstOrDefault(user => user.Student_ID.Equals(username) && user.Password.Equals(password));
+                return dbContext.Users.FirstOrDefault(user => user.Student_ID.Equals(username) && password.Equals(user.Password) && user.IsActive);
             }
         }
         public static User Exists(string username)
@@ -66,7 +67,7 @@ namespace CourseRegistration
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
                 //Check if a user exists with given username and pw.
-                return dbContext.Users.FirstOrDefault(user => user.Student_ID.Equals(username));
+                return dbContext.Users.FirstOrDefault(user => user.Student_ID.Equals(username) && user.IsActive);
             }
         }
         public static RoleTypes GetRoleOf(User user)
@@ -75,6 +76,63 @@ namespace CourseRegistration
             {
                 var selection = dbContext.User_Role.FirstOrDefault(u => u.User_ID == user.User_ID);
                 return (RoleTypes)selection.Role_ID;
+            }
+        }
+
+        public static List<User> GetAllUsers()
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Users.Where(u => u.IsActive).ToList();
+            }
+        }
+        public static List<User> GetAllUsers(RoleTypes roleType)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                var roles = dbContext.User_Role.Where(r => r.Role_ID == (decimal)roleType);
+
+                List<User> users = new List<User>();
+                foreach(User_Role role in roles)
+                {
+                    users.Add(role.GetUser());
+                }
+
+                return users;
+            }
+        }
+
+    }
+
+    public static class UserExtensions
+    {
+        public static bool IsEnrolled(this User context, Course_Schedule schedule)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Student_Course.FirstOrDefault(c => c.CourseSchedule_ID.Equals(schedule.CourseSchedule_ID)) != null;
+            }
+        }
+        public static bool IsEnrolled(this User context, Course course)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Student_Course.FirstOrDefault(c => c.GetCourse().Course_ID.Equals(course.Course_ID)) != null;
+            }
+        }
+
+        public static bool HasStudentCourse(this User context, Course_Schedule schedule)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Student_Course.FirstOrDefault(sc => sc.User_ID.Equals(context.User_ID) && sc.CourseSchedule_ID.Equals(schedule.CourseSchedule_ID)) != null;
+            }
+        }
+        public static Student_Course GetStudentCourse(this User context, Course_Schedule schedule)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.Student_Course.FirstOrDefault(sc => sc.User_ID.Equals(context.User_ID) && sc.CourseSchedule_ID.Equals(schedule.CourseSchedule_ID));
             }
         }
     }

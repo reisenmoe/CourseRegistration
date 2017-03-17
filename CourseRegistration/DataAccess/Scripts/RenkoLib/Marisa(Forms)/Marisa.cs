@@ -50,12 +50,12 @@ namespace Renko
         {
             for (int i = 0; i < context.Columns.Count; i++)
             {
-                context.Columns[i].SortMode = (on ? DataGridViewColumnSortMode.Automatic | DataGridViewColumnSortMode.NotSortable);
+                context.Columns[i].SortMode = (on ? DataGridViewColumnSortMode.Automatic : DataGridViewColumnSortMode.NotSortable);
             }
         }
         public static void ToggleColumnSort(this DataGridView context, int targetColumnIndex, bool on)
         {
-            context.Columns[targetColumnIndex].SortMode = (on ? DataGridViewColumnSortMode.Automatic | DataGridViewColumnSortMode.NotSortable);
+            context.Columns[targetColumnIndex].SortMode = (on ? DataGridViewColumnSortMode.Automatic : DataGridViewColumnSortMode.NotSortable);
         }
         public static bool SelectedRow(this DataGridView context)
         {

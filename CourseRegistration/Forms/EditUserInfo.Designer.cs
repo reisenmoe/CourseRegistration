@@ -1,6 +1,6 @@
 ﻿namespace CourseRegistration
 {
-    partial class MyInfo
+    partial class EditUserInfo
     {
         /// <summary>
         /// Required designer variable.

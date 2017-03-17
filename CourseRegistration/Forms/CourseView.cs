@@ -23,18 +23,23 @@ namespace CourseRegistration
 
             //Get list of course schedules and courses this user is enrolled on.
             lcSchedules = ScheduleManager.GetSchedulesOf(GlobalApplication.cMyUser);
-            lcCourses = lcSchedules.ToCourses();
 
-            //Populate the combo box
-            for(int i=0; i<lcCourses.Count; i++)
+            //If there are schedules
+            if(lcSchedules.Count > 0)
             {
-                cbCourses.Items.Add(lcCourses[i].Course_Name);
+                lcCourses = lcSchedules.ToCourses();
+
+                //Populate the combo box
+                for (int i = 0; i < lcCourses.Count; i++)
+                {
+                    cbCourses.Items.Add(lcCourses[i].Course_Name);
+                }
+
+                //Set first selection
+                cbCourses.SelectedIndex = 0;
+
+                cbCourses.Refresh();
             }
-
-            //Set first selection
-            cbCourses.SelectedIndex = 0;
-
-            cbCourses.Refresh();
         }
 
         #region Button events

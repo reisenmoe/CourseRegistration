@@ -17,21 +17,20 @@ namespace CourseRegistration
         {
             InitializeComponent();
 
-            //Change view based on role type
-            pAdmin.Visible = GlobalApplication.emMyRole == CourseRegistration.RoleTypes.Admin;
-            pNonAdmin.Visible = GlobalApplication.emMyRole != CourseRegistration.RoleTypes.Admin;
-
-            //Set welcome message
-            lbWelcome.Text = "Welcome, " + GlobalApplication.cMyUser.FirstName;
+            RefreshDashboard();
         }
 
         #region Button events
         #region Shared
         public void Dashboard_MyInfo(object sender, EventArgs args)
         {
-            this.SwitchFormTo<MyInfo>((context) =>
+            //Set target user object to modify
+            EditUserInfo.cUser = GlobalApplication.cMyUser;
+
+            this.SwitchFormTo<EditUserInfo>((context) =>
             {
                 context.Show();
+                RefreshDashboard();
             });
         }
         public void Dashboard_Logout(object sender, EventArgs args)
@@ -51,6 +50,7 @@ namespace CourseRegistration
                 this.SwitchFormTo<ViewStudents>((context) =>
                 {
                     context.Show();
+                    RefreshDashboard();
                 });
             }
             else
@@ -58,6 +58,7 @@ namespace CourseRegistration
                 this.SwitchFormTo<CourseView>((context) =>
                 {
                     context.Show();
+                    RefreshDashboard();
                 });
             }
         }
@@ -69,6 +70,7 @@ namespace CourseRegistration
             this.SwitchFormTo<ManageFaculty>((context) =>
             {
                 context.Show();
+                RefreshDashboard();
             });
         }
         public void Dashboard_Schedule(object sender, EventArgs args)
@@ -76,6 +78,7 @@ namespace CourseRegistration
             this.SwitchFormTo<ManageSchedule>((context) =>
             {
                 context.Show();
+                RefreshDashboard();
             });
         }
         public void Dashboard_Course(object sender, EventArgs args)
@@ -83,6 +86,7 @@ namespace CourseRegistration
             this.SwitchFormTo<ManageCourse>((context) =>
             {
                 context.Show();
+                RefreshDashboard();
             });
         }
         public void Dashboard_ManageUser(object sender, EventArgs args)
@@ -90,6 +94,7 @@ namespace CourseRegistration
             this.SwitchFormTo<ManageUser>((context) =>
             {
                 context.Show();
+                RefreshDashboard();
             });
         }
         public void Dashboard_RegisterUser(object sender, EventArgs args)
@@ -97,9 +102,23 @@ namespace CourseRegistration
             this.SwitchFormTo<Registration>((context) =>
             {
                 context.Show();
+                RefreshDashboard();
             });
         }
         #endregion
         #endregion
+
+        #region Helpers
+        public void RefreshDashboard()
+        {
+            //Change view based on role type
+            pAdmin.Visible = GlobalApplication.emMyRole == CourseRegistration.RoleTypes.Admin;
+            pNonAdmin.Visible = GlobalApplication.emMyRole != CourseRegistration.RoleTypes.Admin;
+
+            //Set welcome message
+            lbWelcome.Text = "Welcome, " + GlobalApplication.cMyUser.FirstName;
+        }
+        #endregion
+
     }
 }

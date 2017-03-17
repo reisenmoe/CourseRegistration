@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Renko;
 
 namespace CourseRegistration
 {
@@ -83,6 +84,7 @@ namespace CourseRegistration
         {
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
+                //Return all users
                 return dbContext.Users.Where(u => u.IsActive).ToList();
             }
         }
@@ -90,8 +92,10 @@ namespace CourseRegistration
         {
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
+                //Filtering with the role type
                 var roles = dbContext.User_Role.Where(r => r.Role_ID == (decimal)roleType);
 
+                //Get users in the specified role
                 List<User> users = new List<User>();
                 foreach(User_Role role in roles)
                 {
@@ -101,7 +105,26 @@ namespace CourseRegistration
                 return users;
             }
         }
+        public static List<User> GetAllUsers(RoleTypes roleType, string searchFilter)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                //Filtering with role type
+                var roles = dbContext.User_Role.Where(r => r.Role_ID == (decimal)roleType);
 
+                //Get users in the specified role
+                List<User> users = new List<User>();
+                foreach (User_Role role in roles)
+                {
+                    users.Add(role.GetUser());
+                }
+
+                //Filtering with the search filter
+                return users.Where(r => r.FullName.ContainsIgnoreCase(searchFilter) ||
+                                        r.Email.ContainsIgnoreCase(searchFilter) ||
+                                        r.ContactNumber.ContainsIgnoreCase(searchFilter)).ToList();
+            }
+        }
     }
 
     public static class UserExtensions
@@ -133,6 +156,14 @@ namespace CourseRegistration
             using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
             {
                 return dbContext.Student_Course.FirstOrDefault(sc => sc.User_ID.Equals(context.User_ID) && sc.CourseSchedule_ID.Equals(schedule.CourseSchedule_ID));
+            }
+        }
+
+        public static Role GetRole(this User context)
+        {
+            using (KeunhongInstituteDBEntities dbContext = new KeunhongInstituteDBEntities())
+            {
+                return dbContext.User_Role.FirstOrDefault(u => u.User_ID == context.User_ID).GetRole();
             }
         }
     }

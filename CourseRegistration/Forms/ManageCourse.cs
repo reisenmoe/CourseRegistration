@@ -27,6 +27,8 @@ namespace CourseRegistration
             dgvCourses.Columns.Add("Course Code", "Course Code");
             dgvCourses.Columns.Add("Course Description", "Course Description");
             dgvCourses.ToggleColumnSort(false);
+
+            RefreshCourse();
         }
 
         #region Button events
@@ -49,7 +51,7 @@ namespace CourseRegistration
             }
 
             //Set selected course
-            MC_Edit.cSelectedCourse = lcCourses[dgvCourses.SelectedRowIndex();
+            MC_Edit.cSelectedCourse = lcCourses[dgvCourses.SelectedRowIndex()];
 
             //Show MC_Edit screen
             this.SwitchFormTo<MC_Edit>((context) =>

@@ -11,19 +11,32 @@ using CourseRegistration;
 
 namespace CourseRegistration
 {
-    public partial class MyInfo : Form
+    public partial class EditUserInfo : Form
     {
-        public MyInfo()
+        public static User cUser;
+
+
+        public EditUserInfo()
         {
             InitializeComponent();
 
+            //If editing my info
+            if (cUser == GlobalApplication.cMyUser)
+            {
+                this.Text = "My information";
+            }
+            else
+            {
+                this.Text = cUser.FirstName + "'s information";
+            }
+
             //Set initial values
-            tbFirstName.Text = GlobalApplication.cMyUser.FirstName;
-            tbLastName.Text = GlobalApplication.cMyUser.LastName;
-            tbContact.Text = GlobalApplication.cMyUser.ContactNumber;
-            tbAddress.Text = GlobalApplication.cMyUser.Address;
-            tbEmail.Text = GlobalApplication.cMyUser.Email;
-            dtpDateOfBirth.Value = GlobalApplication.cMyUser.DateOfBirth.Value;
+            tbFirstName.Text = cUser.FirstName;
+            tbLastName.Text = cUser.LastName;
+            tbContact.Text = cUser.ContactNumber;
+            tbAddress.Text = cUser.Address;
+            tbEmail.Text = cUser.Email;
+            dtpDateOfBirth.Value = cUser.DateOfBirth.Value;
         }
 
         #region Button events
@@ -70,19 +83,19 @@ namespace CourseRegistration
             #endregion
 
             //Set input values to myUser
-            GlobalApplication.cMyUser.FirstName = tbFirstName.Text;
-            GlobalApplication.cMyUser.LastName = tbLastName.Text;
-            GlobalApplication.cMyUser.FullName = tbFirstName.Text + ' ' + tbLastName.Text;
-            GlobalApplication.cMyUser.ContactNumber = tbContact.Text;
-            GlobalApplication.cMyUser.Address = tbAddress.Text;
-            GlobalApplication.cMyUser.DateOfBirth = dtpDateOfBirth.Value;
+            cUser.FirstName = tbFirstName.Text;
+            cUser.LastName = tbLastName.Text;
+            cUser.FullName = tbFirstName.Text + ' ' + tbLastName.Text;
+            cUser.ContactNumber = tbContact.Text;
+            cUser.Address = tbAddress.Text;
+            cUser.DateOfBirth = dtpDateOfBirth.Value;
 
             //Modified
-            GlobalApplication.cMyUser.ModifiedBy = GlobalApplication.cMyUser.User_ID;
-            GlobalApplication.cMyUser.ModifiedDateTime = DateTime.Now;
+            cUser.ModifiedBy = GlobalApplication.cMyUser.User_ID;
+            cUser.ModifiedDateTime = DateTime.Now;
 
             //Update
-            SharedManager.Update(GlobalApplication.cMyUser,
+            SharedManager.Update(cUser,
                                 u => u.FirstName, u => u.LastName, u => u.FullName,
                                 u => u.ContactNumber, u => u.Address, u => u.DateOfBirth);
 

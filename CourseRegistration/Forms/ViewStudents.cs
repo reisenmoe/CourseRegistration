@@ -23,16 +23,21 @@ namespace CourseRegistration
 
             //Get course schedule list
             lcSchedules = ScheduleManager.GetSchedulesOf(GlobalApplication.cMyUser);
-            //Set each schedules to combo box
-            for (int i = 0; i < lcSchedules.Count; i++)
+
+            //If there are schedules
+            if (lcSchedules.Count > 0)
             {
-                cbCourses.Items.Add(lcSchedules[i].GetCourse().Course_Name);
+                //Set each schedules to combo box
+                for (int i = 0; i < lcSchedules.Count; i++)
+                {
+                    cbCourses.Items.Add(lcSchedules[i].GetCourse().Course_Name);
+                }
+
+                //Set first selection
+                cbCourses.SelectedValue = cbCourses.Items[0];
+
+                cbCourses.Refresh();
             }
-
-            //Set first selection
-            cbCourses.SelectedValue = cbCourses.Items[0];
-
-            cbCourses.Refresh();
         }
 
         #region Button events

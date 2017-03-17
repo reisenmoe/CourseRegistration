@@ -149,9 +149,6 @@ namespace CourseRegistration
 
             //Refresh grid view
             dgvFaculties.Refresh();
-
-            //Select first row
-            dgvFaculties.CurrentCell = dgvFaculties.Rows[0].Cells[0];
         }
         #endregion
     }

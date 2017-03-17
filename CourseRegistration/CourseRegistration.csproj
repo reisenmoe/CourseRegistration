@@ -83,6 +83,7 @@
     <Compile Include="DataAccess\Scripts\Enums.cs" />
     <Compile Include="DataAccess\Scripts\FacultyManager.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Marisa%28Forms%29\Marisa.cs" />
+    <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\Extensions.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\JsonRelated\Attribute.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\JsonRelated\JsonUtility.cs" />
     <Compile Include="DataAccess\Scripts\RenkoLib\Shared%28CS%29\JsonRelated\SimpleJSON.cs" />
@@ -142,12 +143,6 @@
     <Compile Include="Forms\ManageFaculty.Designer.cs">
       <DependentUpon>ManageFaculty.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ManageRole.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ManageRole.Designer.cs">
-      <DependentUpon>ManageRole.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ManageSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,11 +179,11 @@
     <Compile Include="Forms\MS_Edit.Designer.cs">
       <DependentUpon>MS_Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MyInfo.cs">
+    <Compile Include="Forms\EditUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MyInfo.Designer.cs">
-      <DependentUpon>MyInfo.cs</DependentUpon>
+    <Compile Include="Forms\EditUserInfo.Designer.cs">
+      <DependentUpon>EditUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ViewStudents.cs">
       <SubType>Form</SubType>
@@ -232,9 +227,6 @@
     <EmbeddedResource Include="Forms\ManageFaculty.resx">
       <DependentUpon>ManageFaculty.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManageRole.resx">
-      <DependentUpon>ManageRole.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManageSchedule.resx">
       <DependentUpon>ManageSchedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,8 +245,8 @@
     <EmbeddedResource Include="Forms\MS_Edit.resx">
       <DependentUpon>MS_Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MyInfo.resx">
-      <DependentUpon>MyInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditUserInfo.resx">
+      <DependentUpon>EditUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>

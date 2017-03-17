@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Course_ID" />
           </Key>
-          <Property Name="Course_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Course_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Faculty_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Course_Code" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Course_Name" Type="varchar" MaxLength="150" Nullable="false" />
@@ -124,7 +124,7 @@
           <Key>
             <PropertyRef Name="Course_ID" />
           </Key>
-          <Property Name="Course_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Course_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Faculty_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Course_Code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Course_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />

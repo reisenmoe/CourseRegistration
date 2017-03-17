@@ -69,15 +69,16 @@ namespace CourseRegistration
         public void FillCourses()
         {
             //Clear courses
-            lcCourses.Clear();
+            lcCourses = null;
             cbCourse.Items.Clear();
 
             //Get list of courses
             lcCourses = CourseManager.GetAllCourses();
+            Debug.Log("LcCourses count: " + lcCourses.Count);
 
             //Fill courses combo box
             for (int i = 0; i < lcCourses.Count; i++)
-                cbCourse.Items.Add(lcCourses[i]);
+                cbCourse.Items.Add(lcCourses[i].Course_Name);
 
             //Select the first course
             cbCourse.SelectedIndex = 0;
@@ -87,18 +88,22 @@ namespace CourseRegistration
         public void FillTutors()
         {
             //Clear tutors
-            lcTutors.Clear();
+            lcTutors = null;
             cbTutor.Items.Clear();
 
             //Get list of tutors
             lcTutors = UserManager.GetAllUsers(RoleTypes.Tutor);
 
-            //Fill the combo box
-            for (int i = 0; i < lcTutors.Count; i++)
-                cbTutor.Items.Add(lcTutors[i]);
+            //Only if there are any tutors
+            if (lcTutors.Count > 0)
+            {
+                //Fill the combo box
+                for (int i = 0; i < lcTutors.Count; i++)
+                    cbTutor.Items.Add(lcTutors[i].FullName);
 
-            //Select the first tutor
-            cbTutor.SelectedIndex = 0;
+                //Select the first tutor
+                cbTutor.SelectedIndex = 0;
+            }
 
             cbTutor.Refresh();
         }

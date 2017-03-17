@@ -124,22 +124,26 @@ namespace CourseRegistration
             //Get all courses
             lcCourses = CourseManager.GetAllCourses();
 
-            //Current course's id
-            decimal curCourseID = cSelectedSchedule.GetCourse().Course_ID;
-            //Fill the course combo box
-            for (int i = 0; i < lcCourses.Count; i++)
+            //Only if there are any courses
+            if (lcCourses.Count > 0)
             {
-                cbCourse.Items.Add(lcCourses[i]);
+                //Current course's id
+                decimal curCourseID = cSelectedSchedule.GetCourse().Course_ID;
+                //Fill the course combo box
+                for (int i = 0; i < lcCourses.Count; i++)
+                {
+                    cbCourse.Items.Add(lcCourses[i]);
+
+                    //Set selection
+                    if (lcCourses[i].Course_ID.Equals(curCourseID))
+                    {
+                        cbCourse.SelectedIndex = i;
+                    }
+                }
 
                 //Set selection
-                if (lcCourses[i].Course_ID.Equals(curCourseID))
-                {
-                    cbCourse.SelectedIndex = i;
-                }
+                cbCourse.SelectedIndex = 0;
             }
-
-            //Set selection
-            cbCourse.SelectedIndex = 0;
 
             //Refresh course
             cbCourse.Refresh();
@@ -153,17 +157,21 @@ namespace CourseRegistration
             //Get all tutors
             lcTutors = UserManager.GetAllUsers(RoleTypes.Tutor);
 
-            //Current tutor's id
-            decimal curTutorID = cSelectedSchedule.GetTutor().User_ID;
-            //Fill the tutor combo box
-            for (int i = 0; i < lcTutors.Count; i++)
+            //Only if there are any tutors
+            if (lcTutors.Count > 0)
             {
-                cbTutor.Items.Add(lcTutors[i]);
-
-                //Set selection
-                if(lcTutors[i].User_ID.Equals(curTutorID))
+                //Current tutor's id
+                decimal curTutorID = cSelectedSchedule.GetTutor().User_ID;
+                //Fill the tutor combo box
+                for (int i = 0; i < lcTutors.Count; i++)
                 {
-                    cbTutor.SelectedIndex = i;
+                    cbTutor.Items.Add(lcTutors[i]);
+
+                    //Set selection
+                    if (lcTutors[i].User_ID.Equals(curTutorID))
+                    {
+                        cbTutor.SelectedIndex = i;
+                    }
                 }
             }
 
@@ -178,7 +186,7 @@ namespace CourseRegistration
 
             //Get all students within filter
             lcStudents = UserManager.GetAllUsers(RoleTypes.Student).Where(u => u.FullName.ToLower().Contains(filter.ToLower())).ToList();
-
+            
             //Fill rows
             for (int i = 0; i < lcStudents.Count; i++)
             {

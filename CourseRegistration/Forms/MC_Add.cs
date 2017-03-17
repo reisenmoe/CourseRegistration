@@ -76,14 +76,18 @@ namespace CourseRegistration
             //Get list of all faculties
             lcFaculties = FacultyManager.GetAll();
 
-            //Fill items
-            for (int i = 0; i < lcFaculties.Count; i++)
+            //Only if there are any faculties
+            if (lcFaculties.Count > 0)
             {
-                cbFaculty.Items.Add(lcFaculties[i].Faculty_Name);
-            }
+                //Fill items
+                for (int i = 0; i < lcFaculties.Count; i++)
+                {
+                    cbFaculty.Items.Add(lcFaculties[i].Faculty_Name);
+                }
 
-            //Select the first item
-            cbFaculty.SelectedIndex = 0;
+                //Select the first item
+                cbFaculty.SelectedIndex = 0;
+            }
 
             cbFaculty.Refresh();
         }

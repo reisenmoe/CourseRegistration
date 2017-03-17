@@ -76,14 +76,18 @@ namespace CourseRegistration
             //Get all roles
             lcRoles = RoleManager.GetAllRoles();
 
-            //Fill combo box
-            for (int i = 0; i < lcRoles.Count; i++)
+            //Only if there are any roles
+            if (lcRoles.Count > 0)
             {
-                cbRole.Items.Add(lcRoles[i].Role_Name);
-            }
+                //Fill combo box
+                for (int i = 0; i < lcRoles.Count; i++)
+                {
+                    cbRole.Items.Add(lcRoles[i].Role_Name);
+                }
 
-            //Set first selection
-            cbRole.SelectedIndex = 0;
+                //Set first selection
+                cbRole.SelectedIndex = 0;
+            }
 
             //Refresh
             cbRole.Refresh();
@@ -102,7 +106,7 @@ namespace CourseRegistration
                 lcUsers = UserManager.GetAllUsers(role.GetRoleType());
             else
                 lcUsers = UserManager.GetAllUsers(role.GetRoleType(), filter);
-
+            
             //Fill data grid view
             for(int i=0; i<lcUsers.Count; i++)
             {

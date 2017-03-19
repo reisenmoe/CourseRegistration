@@ -54,19 +54,20 @@
             // 
             this.dgvFaculties.AllowUserToAddRows = false;
             this.dgvFaculties.AllowUserToDeleteRows = false;
+            this.dgvFaculties.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvFaculties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFaculties.Location = new System.Drawing.Point(13, 26);
             this.dgvFaculties.MultiSelect = false;
             this.dgvFaculties.Name = "dgvFaculties";
             this.dgvFaculties.ReadOnly = true;
             this.dgvFaculties.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFaculties.Size = new System.Drawing.Size(210, 222);
+            this.dgvFaculties.Size = new System.Drawing.Size(289, 222);
             this.dgvFaculties.TabIndex = 1;
             this.dgvFaculties.SelectionChanged += new System.EventHandler(this.ManageFaculty_OnSelectRow);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(229, 68);
+            this.button1.Location = new System.Drawing.Point(311, 68);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 2;
@@ -76,7 +77,7 @@
             // 
             // tbNewFaculty
             // 
-            this.tbNewFaculty.Location = new System.Drawing.Point(229, 42);
+            this.tbNewFaculty.Location = new System.Drawing.Point(311, 42);
             this.tbNewFaculty.Name = "tbNewFaculty";
             this.tbNewFaculty.Size = new System.Drawing.Size(108, 20);
             this.tbNewFaculty.TabIndex = 3;
@@ -84,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(226, 26);
+            this.label2.Location = new System.Drawing.Point(308, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 4;
@@ -92,7 +93,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(229, 225);
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(311, 225);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 23);
             this.button2.TabIndex = 5;
@@ -102,7 +104,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(229, 150);
+            this.button3.Location = new System.Drawing.Point(311, 150);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 23);
             this.button3.TabIndex = 6;
@@ -113,7 +115,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(226, 108);
+            this.label3.Location = new System.Drawing.Point(308, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 7;
@@ -121,14 +123,14 @@
             // 
             // tbSelected
             // 
-            this.tbSelected.Location = new System.Drawing.Point(229, 124);
+            this.tbSelected.Location = new System.Drawing.Point(311, 124);
             this.tbSelected.Name = "tbSelected";
             this.tbSelected.Size = new System.Drawing.Size(108, 20);
             this.tbSelected.TabIndex = 8;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(229, 179);
+            this.button4.Location = new System.Drawing.Point(311, 179);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(108, 23);
             this.button4.TabIndex = 9;
@@ -140,7 +142,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 260);
+            this.CancelButton = this.button2;
+            this.ClientSize = new System.Drawing.Size(431, 260);
+            this.ControlBox = false;
             this.Controls.Add(this.button4);
             this.Controls.Add(this.tbSelected);
             this.Controls.Add(this.label3);
@@ -151,6 +155,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvFaculties);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ManageFaculty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -39,7 +39,8 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(421, 263);
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(421, 324);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 0;
@@ -51,13 +52,14 @@
             // 
             this.dgvSchedules.AllowUserToAddRows = false;
             this.dgvSchedules.AllowUserToDeleteRows = false;
+            this.dgvSchedules.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvSchedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSchedules.Location = new System.Drawing.Point(13, 25);
             this.dgvSchedules.MultiSelect = false;
             this.dgvSchedules.Name = "dgvSchedules";
             this.dgvSchedules.ReadOnly = true;
             this.dgvSchedules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSchedules.Size = new System.Drawing.Size(483, 171);
+            this.dgvSchedules.Size = new System.Drawing.Size(483, 235);
             this.dgvSchedules.TabIndex = 2;
             // 
             // label1
@@ -71,7 +73,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 203);
+            this.button1.Location = new System.Drawing.Point(12, 266);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 23);
             this.button1.TabIndex = 4;
@@ -81,7 +83,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 233);
+            this.button2.Location = new System.Drawing.Point(12, 295);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 23);
             this.button2.TabIndex = 5;
@@ -91,7 +93,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 263);
+            this.button3.Location = new System.Drawing.Point(12, 324);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 23);
             this.button3.TabIndex = 6;
@@ -103,13 +105,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 298);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(508, 359);
+            this.ControlBox = false;
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSchedules);
             this.Controls.Add(this.btnClose);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ManageSchedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

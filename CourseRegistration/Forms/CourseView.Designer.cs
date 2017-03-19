@@ -45,6 +45,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lbTutorEmail = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.lbGrade = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -86,7 +88,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 199);
+            this.label4.Location = new System.Drawing.Point(16, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 13);
             this.label4.TabIndex = 4;
@@ -95,7 +97,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 107);
+            this.label5.Location = new System.Drawing.Point(16, 130);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 5;
@@ -104,7 +106,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 153);
+            this.label6.Location = new System.Drawing.Point(16, 176);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 6;
@@ -113,7 +115,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 176);
+            this.label7.Location = new System.Drawing.Point(16, 199);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 13);
             this.label7.TabIndex = 7;
@@ -140,7 +142,7 @@
             // lbTutorName
             // 
             this.lbTutorName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbTutorName.Location = new System.Drawing.Point(86, 107);
+            this.lbTutorName.Location = new System.Drawing.Point(86, 130);
             this.lbTutorName.Name = "lbTutorName";
             this.lbTutorName.Size = new System.Drawing.Size(244, 13);
             this.lbTutorName.TabIndex = 10;
@@ -149,7 +151,7 @@
             // lbStartDate
             // 
             this.lbStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbStartDate.Location = new System.Drawing.Point(78, 153);
+            this.lbStartDate.Location = new System.Drawing.Point(78, 176);
             this.lbStartDate.Name = "lbStartDate";
             this.lbStartDate.Size = new System.Drawing.Size(252, 13);
             this.lbStartDate.TabIndex = 11;
@@ -158,7 +160,7 @@
             // lbFinishDate
             // 
             this.lbFinishDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFinishDate.Location = new System.Drawing.Point(83, 176);
+            this.lbFinishDate.Location = new System.Drawing.Point(83, 199);
             this.lbFinishDate.Name = "lbFinishDate";
             this.lbFinishDate.Size = new System.Drawing.Size(247, 13);
             this.lbFinishDate.TabIndex = 12;
@@ -167,7 +169,7 @@
             // lbDescription
             // 
             this.lbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDescription.Location = new System.Drawing.Point(119, 199);
+            this.lbDescription.Location = new System.Drawing.Point(119, 222);
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(211, 51);
             this.lbDescription.TabIndex = 13;
@@ -175,7 +177,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(255, 263);
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(255, 286);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -186,7 +189,7 @@
             // lbTutorEmail
             // 
             this.lbTutorEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbTutorEmail.Location = new System.Drawing.Point(84, 130);
+            this.lbTutorEmail.Location = new System.Drawing.Point(84, 153);
             this.lbTutorEmail.Name = "lbTutorEmail";
             this.lbTutorEmail.Size = new System.Drawing.Size(246, 13);
             this.lbTutorEmail.TabIndex = 15;
@@ -195,17 +198,39 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 130);
+            this.label9.Location = new System.Drawing.Point(16, 153);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 13);
             this.label9.TabIndex = 14;
             this.label9.Text = "Tutor email:";
             // 
+            // lbGrade
+            // 
+            this.lbGrade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbGrade.Location = new System.Drawing.Point(86, 107);
+            this.lbGrade.Name = "lbGrade";
+            this.lbGrade.Size = new System.Drawing.Size(244, 13);
+            this.lbGrade.TabIndex = 17;
+            this.lbGrade.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 107);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Grade:";
+            // 
             // CourseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 298);
+            this.CancelButton = this.button1;
+            this.ClientSize = new System.Drawing.Size(342, 321);
+            this.ControlBox = false;
+            this.Controls.Add(this.lbGrade);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.lbTutorEmail);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
@@ -223,6 +248,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbCourses);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CourseView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -251,5 +277,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbTutorEmail;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbGrade;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -22,5 +22,6 @@ namespace CourseRegistration
         public decimal ModifiedBy { get; set; }
         public System.DateTime ModifiedDateTime { get; set; }
         public bool IsActive { get; set; }
+        public string Grade { get; set; }
     }
 }

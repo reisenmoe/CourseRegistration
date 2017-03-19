@@ -144,6 +144,7 @@
             // 
             // button9
             // 
+            this.button9.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button9.Location = new System.Drawing.Point(308, 41);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(120, 23);
@@ -156,12 +157,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button9;
             this.ClientSize = new System.Drawing.Size(440, 170);
+            this.ControlBox = false;
             this.Controls.Add(this.button9);
             this.Controls.Add(this.pNonAdmin);
             this.Controls.Add(this.pAdmin);
             this.Controls.Add(this.lbWelcome);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

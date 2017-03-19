@@ -45,5 +45,10 @@ namespace CourseRegistration
                 form.Show();
             });
         }
+
+        public void Login_Close(object sender, EventArgs args)
+        {
+            this.Close();
+        }
     }
 }

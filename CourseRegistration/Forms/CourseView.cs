@@ -60,10 +60,12 @@ namespace CourseRegistration
             //Selection
             Course curCourse = lcCourses[index];
             Course_Schedule curSchedule = lcSchedules[index];
+            Student_Course curStudentCourse = GlobalApplication.cMyUser.GetStudentCourse(curSchedule);
 
             //Set label text
             lbCourseName.Text = curCourse.Course_Name;
             lbCourseCode.Text = curCourse.Course_Code;
+            lbGrade.Text = curStudentCourse.Grade;
             lbTutorName.Text = curSchedule.GetTutor().FullName;
             lbTutorEmail.Text = curSchedule.GetTutor().Email;
             lbStartDate.Text = curSchedule.DT_From.ToString();

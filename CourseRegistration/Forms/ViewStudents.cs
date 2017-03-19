@@ -15,6 +15,7 @@ namespace CourseRegistration
     public partial class ViewStudents : Form
     {
         private List<Course_Schedule> lcSchedules;
+        private List<User> lcStudents;
 
 
         public ViewStudents()
@@ -49,6 +50,31 @@ namespace CourseRegistration
             //Populate the grid view with index
             ViewStudents_PopulateGridView(cbCourses.SelectedIndex);
         }
+        public void ViewStudents_Apply(object sender, EventArgs args)
+        {
+            //If row not selected, return
+            if(!dgvStudentView.SelectedRow())
+            {
+                MessageBox.Show("Select a row first.");
+                return;
+            }
+
+            //Get the student course of selected student
+            Course_Schedule schedule = lcSchedules[cbCourses.SelectedIndex];
+            User student = lcStudents[dgvStudentView.SelectedRowIndex()];
+            Student_Course sCourse = student.GetStudentCourse(schedule);
+
+            //Update
+            sCourse.Grade = cbGrade.Text;
+            sCourse.ModifiedDateTime = DateTime.Now;
+            SharedManager.Update(sCourse, s => s.Grade, s => s.ModifiedDateTime);
+
+            //Show message
+            MessageBox.Show("Updated grade.");
+
+            //Refresh grid view
+            dgvStudentView.Refresh();
+        }
         public void ViewStudents_Close(object sender, EventArgs args)
         {
             this.Close();
@@ -65,7 +91,7 @@ namespace CourseRegistration
         public void ViewStudents_PopulateGridView(int index)
         {
             //Get students list
-            List<User> students = lcSchedules[index].GetStudents();
+            lcStudents = lcSchedules[index].GetStudents();
 
             //Create new data table
             DataTable dt = new DataTable();
@@ -74,13 +100,15 @@ namespace CourseRegistration
             dt.Columns.Add("First Name");
             dt.Columns.Add("Last Name");
             dt.Columns.Add("Student ID");
+            dt.Columns.Add("Grade");
             dt.Columns.Add("Email");
             dt.Columns.Add("Contact");
 
             //Set rows
-            for(int i=0; i<students.Count;i++)
+            for(int i=0; i< lcStudents.Count;i++)
             {
-                dt.Rows.Add(students[i].FirstName, students[i].LastName, students[i].Student_ID, students[i].Email, students[i].ContactNumber);
+                Student_Course sc = lcStudents[i].GetStudentCourse(lcSchedules[cbCourses.SelectedIndex]);
+                dt.Rows.Add(lcStudents[i].FirstName, lcStudents[i].LastName, lcStudents[i].Student_ID, sc.Grade, lcStudents[i].Email, lcStudents[i].ContactNumber);
             }
 
             //Set data source

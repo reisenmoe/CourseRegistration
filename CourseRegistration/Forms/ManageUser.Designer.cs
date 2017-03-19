@@ -54,19 +54,20 @@
             // 
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Location = new System.Drawing.Point(12, 25);
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(457, 150);
+            this.dgvUsers.Size = new System.Drawing.Size(524, 225);
             this.dgvUsers.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 190);
+            this.label2.Location = new System.Drawing.Point(12, 259);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 2;
@@ -74,15 +75,15 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(59, 187);
+            this.tbSearch.Location = new System.Drawing.Point(59, 256);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(146, 20);
+            this.tbSearch.Size = new System.Drawing.Size(143, 20);
             this.tbSearch.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 213);
+            this.label3.Location = new System.Drawing.Point(12, 282);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 4;
@@ -91,14 +92,14 @@
             // cbRole
             // 
             this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(59, 210);
+            this.cbRole.Location = new System.Drawing.Point(59, 279);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(146, 21);
+            this.cbRole.Size = new System.Drawing.Size(143, 21);
             this.cbRole.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 237);
+            this.button1.Location = new System.Drawing.Point(12, 308);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(190, 23);
             this.button1.TabIndex = 6;
@@ -108,7 +109,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(394, 266);
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(461, 337);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -118,7 +120,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(15, 266);
+            this.button3.Location = new System.Drawing.Point(12, 337);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(190, 23);
             this.button3.TabIndex = 8;
@@ -129,7 +131,7 @@
             // lbResults
             // 
             this.lbResults.AutoSize = true;
-            this.lbResults.Location = new System.Drawing.Point(211, 190);
+            this.lbResults.Location = new System.Drawing.Point(208, 259);
             this.lbResults.Name = "lbResults";
             this.lbResults.Size = new System.Drawing.Size(54, 13);
             this.lbResults.TabIndex = 9;
@@ -140,7 +142,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 300);
+            this.CancelButton = this.button2;
+            this.ClientSize = new System.Drawing.Size(548, 372);
+            this.ControlBox = false;
             this.Controls.Add(this.lbResults);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -151,6 +155,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ManageUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage users";

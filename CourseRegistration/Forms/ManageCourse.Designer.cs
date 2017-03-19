@@ -50,18 +50,19 @@
             // 
             this.dgvCourses.AllowUserToAddRows = false;
             this.dgvCourses.AllowUserToDeleteRows = false;
+            this.dgvCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCourses.Location = new System.Drawing.Point(12, 25);
             this.dgvCourses.MultiSelect = false;
             this.dgvCourses.Name = "dgvCourses";
             this.dgvCourses.ReadOnly = true;
             this.dgvCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourses.Size = new System.Drawing.Size(484, 171);
+            this.dgvCourses.Size = new System.Drawing.Size(484, 250);
             this.dgvCourses.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 263);
+            this.button1.Location = new System.Drawing.Point(12, 339);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 23);
             this.button1.TabIndex = 5;
@@ -71,7 +72,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 234);
+            this.button2.Location = new System.Drawing.Point(12, 310);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 23);
             this.button2.TabIndex = 6;
@@ -81,7 +82,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 205);
+            this.button3.Location = new System.Drawing.Point(12, 281);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 23);
             this.button3.TabIndex = 7;
@@ -91,7 +92,8 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(421, 263);
+            this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button4.Location = new System.Drawing.Point(421, 339);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 8;
@@ -103,13 +105,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 298);
+            this.CancelButton = this.button4;
+            this.ClientSize = new System.Drawing.Size(508, 374);
+            this.ControlBox = false;
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvCourses);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ManageCourse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

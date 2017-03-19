@@ -52,6 +52,7 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(188, 226);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -130,7 +131,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(275, 261);
+            this.ControlBox = false;
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbCode);
@@ -141,6 +144,7 @@
             this.Controls.Add(this.cbFaculty);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MC_Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

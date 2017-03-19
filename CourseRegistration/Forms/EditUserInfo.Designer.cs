@@ -135,6 +135,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(286, 200);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -163,11 +164,13 @@
             this.dtpDateOfBirth.TabIndex = 14;
             this.dtpDateOfBirth.Value = new System.DateTime(2017, 3, 11, 0, 0, 0, 0);
             // 
-            // MyInfo
+            // EditUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(373, 235);
+            this.ControlBox = false;
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
@@ -182,8 +185,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "MyInfo";
+            this.Name = "EditUserInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Information";
             this.ResumeLayout(false);

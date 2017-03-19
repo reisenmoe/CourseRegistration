@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KeunhongInstituteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KeunhongInstituteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Course">
           <Key>
             <PropertyRef Name="Course_ID" />
@@ -67,6 +67,7 @@
           <Property Name="StudentCourse_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseSchedule_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="User_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Grade" Type="varchar" MaxLength="2" Nullable="false" />
           <Property Name="CreatedBy" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
           <Property Name="ModifiedBy" Type="numeric" Precision="18" Scale="0" Nullable="false" />
@@ -115,8 +116,7 @@
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KeunhongInstituteDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -187,6 +187,7 @@
           <Property Name="ModifiedBy" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Grade" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -298,6 +299,7 @@
           <EntitySetMapping Name="Student_Course">
             <EntityTypeMapping TypeName="KeunhongInstituteDBModel.Student_Course">
               <MappingFragment StoreEntitySet="Student_Course">
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
                 <ScalarProperty Name="StudentCourse_ID" ColumnName="StudentCourse_ID" />
                 <ScalarProperty Name="CourseSchedule_ID" ColumnName="CourseSchedule_ID" />
                 <ScalarProperty Name="User_ID" ColumnName="User_ID" />

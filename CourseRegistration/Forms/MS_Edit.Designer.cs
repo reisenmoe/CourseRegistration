@@ -59,18 +59,20 @@
             // 
             this.dgvStudents.AllowUserToAddRows = false;
             this.dgvStudents.AllowUserToDeleteRows = false;
+            this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudents.Location = new System.Drawing.Point(12, 41);
             this.dgvStudents.MultiSelect = false;
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.ReadOnly = true;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(318, 163);
+            this.dgvStudents.Size = new System.Drawing.Size(386, 223);
             this.dgvStudents.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(255, 413);
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(323, 465);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -80,7 +82,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 210);
+            this.button2.Location = new System.Drawing.Point(12, 270);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 23);
             this.button2.TabIndex = 3;
@@ -90,14 +92,14 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(93, 14);
+            this.tbSearch.Location = new System.Drawing.Point(158, 14);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(156, 20);
+            this.tbSearch.Size = new System.Drawing.Size(159, 20);
             this.tbSearch.TabIndex = 4;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(255, 12);
+            this.button3.Location = new System.Drawing.Point(323, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;
@@ -107,7 +109,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 413);
+            this.button4.Location = new System.Drawing.Point(12, 465);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 19;
@@ -116,15 +118,15 @@
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Location = new System.Drawing.Point(12, 372);
+            this.dtpEnd.Location = new System.Drawing.Point(12, 429);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(318, 20);
+            this.dtpEnd.Size = new System.Drawing.Size(386, 20);
             this.dtpEnd.TabIndex = 17;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 356);
+            this.label4.Location = new System.Drawing.Point(9, 413);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 16;
@@ -132,15 +134,15 @@
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(12, 323);
+            this.dtpStart.Location = new System.Drawing.Point(12, 380);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(318, 20);
+            this.dtpStart.Size = new System.Drawing.Size(386, 20);
             this.dtpStart.TabIndex = 15;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 307);
+            this.label3.Location = new System.Drawing.Point(9, 364);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 14;
@@ -149,15 +151,15 @@
             // cbTutor
             // 
             this.cbTutor.FormattingEnabled = true;
-            this.cbTutor.Location = new System.Drawing.Point(55, 276);
+            this.cbTutor.Location = new System.Drawing.Point(55, 334);
             this.cbTutor.Name = "cbTutor";
-            this.cbTutor.Size = new System.Drawing.Size(275, 21);
+            this.cbTutor.Size = new System.Drawing.Size(343, 21);
             this.cbTutor.TabIndex = 13;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 279);
+            this.label2.Location = new System.Drawing.Point(9, 337);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 12;
@@ -166,15 +168,15 @@
             // cbCourse
             // 
             this.cbCourse.FormattingEnabled = true;
-            this.cbCourse.Location = new System.Drawing.Point(55, 253);
+            this.cbCourse.Location = new System.Drawing.Point(55, 311);
             this.cbCourse.Name = "cbCourse";
-            this.cbCourse.Size = new System.Drawing.Size(275, 21);
+            this.cbCourse.Size = new System.Drawing.Size(343, 21);
             this.cbCourse.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 256);
+            this.label5.Location = new System.Drawing.Point(9, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 10;
@@ -184,7 +186,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 448);
+            this.CancelButton = this.button1;
+            this.ClientSize = new System.Drawing.Size(410, 500);
+            this.ControlBox = false;
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dtpEnd);
             this.Controls.Add(this.label4);
@@ -200,6 +204,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MS_Edit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

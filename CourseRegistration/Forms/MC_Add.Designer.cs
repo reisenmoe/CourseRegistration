@@ -42,37 +42,37 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 226);
+            this.button2.Location = new System.Drawing.Point(89, 199);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 19;
-            this.button2.Text = "Add";
+            this.button2.Text = "&Save";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Add);
             // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(188, 226);
+            this.button1.Location = new System.Drawing.Point(170, 199);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
-            this.button1.Text = "Close";
+            this.button1.Text = "&Cancel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Close);
             // 
             // cbFaculty
             // 
             this.cbFaculty.FormattingEnabled = true;
-            this.cbFaculty.Location = new System.Drawing.Point(89, 55);
+            this.cbFaculty.Location = new System.Drawing.Point(89, 61);
             this.cbFaculty.Name = "cbFaculty";
-            this.cbFaculty.Size = new System.Drawing.Size(174, 21);
+            this.cbFaculty.Size = new System.Drawing.Size(251, 21);
             this.cbFaculty.TabIndex = 13;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 58);
+            this.label2.Location = new System.Drawing.Point(12, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 12;
@@ -91,13 +91,13 @@
             // 
             this.tbName.Location = new System.Drawing.Point(89, 9);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(174, 20);
+            this.tbName.Size = new System.Drawing.Size(251, 20);
             this.tbName.TabIndex = 20;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 35);
+            this.label3.Location = new System.Drawing.Point(12, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 21;
@@ -105,23 +105,23 @@
             // 
             // tbCode
             // 
-            this.tbCode.Location = new System.Drawing.Point(89, 32);
+            this.tbCode.Location = new System.Drawing.Point(89, 35);
             this.tbCode.Name = "tbCode";
-            this.tbCode.Size = new System.Drawing.Size(174, 20);
+            this.tbCode.Size = new System.Drawing.Size(251, 20);
             this.tbCode.TabIndex = 22;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 100);
+            this.label4.Location = new System.Drawing.Point(12, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 13);
+            this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 23;
-            this.label4.Text = "Course Description";
+            this.label4.Text = "Description";
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(12, 116);
+            this.tbDescription.Location = new System.Drawing.Point(89, 89);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(251, 104);
@@ -132,7 +132,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(275, 261);
+            this.ClientSize = new System.Drawing.Size(364, 234);
             this.ControlBox = false;
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.label4);
@@ -148,7 +148,7 @@
             this.MaximizeBox = false;
             this.Name = "MC_Add";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add new course";
+            this.Text = "Add New Course";
             this.ResumeLayout(false);
             this.PerformLayout();
 

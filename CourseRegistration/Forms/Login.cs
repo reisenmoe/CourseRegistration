@@ -50,5 +50,13 @@ namespace CourseRegistration
         {
             this.Close();
         }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login_Login(sender, e);
+            }
+        }
     }
 }

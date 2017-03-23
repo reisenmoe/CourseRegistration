@@ -1,6 +1,6 @@
 ﻿namespace CourseRegistration
 {
-    partial class EditUserInfo
+    partial class MyInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -135,7 +135,6 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(165, 166);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -164,13 +163,11 @@
             this.dtpDateOfBirth.TabIndex = 14;
             this.dtpDateOfBirth.Value = new System.DateTime(2017, 3, 11, 0, 0, 0, 0);
             // 
-            // EditUserInfo
+            // MyInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(373, 201);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(373, 205);
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
@@ -185,11 +182,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "EditUserInfo";
+            this.Name = "MyInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "My Profile";
+            this.Text = "My Information";
             this.ResumeLayout(false);
             this.PerformLayout();
 

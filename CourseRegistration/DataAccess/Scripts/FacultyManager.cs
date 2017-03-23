@@ -26,7 +26,7 @@ namespace CourseRegistration
                     dbContext.Faculties.Add(faculty);
                     dbContext.SaveChanges();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return null;
                 }

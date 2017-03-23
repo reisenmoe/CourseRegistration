@@ -46,9 +46,9 @@ namespace CourseRegistration
             //Create new schedule object
             Course_Schedule schedule = new Course_Schedule();
             schedule.Course_ID = lcCourses[cbCourse.SelectedIndex].Course_ID;
-            schedule.Course_ID = GlobalApplication.cMyUser.User_ID;
             schedule.DT_From = dtpStart.Value;
             schedule.DT_To = dtpEnd.Value;
+            schedule.CreatedBy = GlobalApplication.cMyUser.User_ID;
             schedule.ModifiedBy = GlobalApplication.cMyUser.User_ID;
             schedule.Teacher_ID = lcTutors[cbTutor.SelectedIndex].User_ID;
 

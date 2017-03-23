@@ -58,7 +58,7 @@ namespace CourseRegistration
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(98, 23);
+            this.tbUsername.Location = new System.Drawing.Point(87, 23);
             this.tbUsername.MaxLength = 8;
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(133, 20);
@@ -66,31 +66,32 @@ namespace CourseRegistration
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(98, 48);
+            this.tbPassword.Location = new System.Drawing.Point(87, 48);
             this.tbPassword.MaxLength = 10;
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(133, 20);
             this.tbPassword.TabIndex = 3;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(54, 103);
+            this.button1.Location = new System.Drawing.Point(86, 78);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(62, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Login";
+            this.button1.Text = "&Login";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Login_Login);
             // 
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(135, 103);
+            this.button2.Location = new System.Drawing.Point(155, 78);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(65, 23);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Close";
+            this.button2.Text = "&Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Login_Close);
             // 
@@ -99,7 +100,7 @@ namespace CourseRegistration
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(262, 138);
+            this.ClientSize = new System.Drawing.Size(252, 120);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -111,7 +112,7 @@ namespace CourseRegistration
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Keunhong Institute System on Course Registration System";
+            this.Text = "Course Registration - Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

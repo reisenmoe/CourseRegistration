@@ -21,7 +21,7 @@ namespace CourseRegistration
             InitializeComponent();
 
             //Set columns
-            dgvCourses.Columns.Add("id", "id");
+            dgvCourses.Columns.Add("Id", "Id");
             dgvCourses.Columns.Add("Course Name", "Course Name");
             dgvCourses.Columns.Add("Faculty Name", "Faculty Name");
             dgvCourses.Columns.Add("Course Code", "Course Code");
@@ -46,7 +46,7 @@ namespace CourseRegistration
             //Return if no selection
             if (!dgvCourses.SelectedRow())
             {
-                MessageBox.Show("Select a course first.");
+                MessageBox.Show("Please select a course.");
                 return;
             }
 
@@ -65,12 +65,12 @@ namespace CourseRegistration
             //Return if no selection
             if (!dgvCourses.SelectedRow())
             {
-                MessageBox.Show("Select a course first.");
+                MessageBox.Show("Please select a course.");
                 return;
             }
 
             //Confirm first
-            if(MessageBox.Show("Are you sure you want to delete this course?", "Delete course", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to delete this course?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 //Select the target course
                 Course course = lcCourses[dgvCourses.SelectedRowIndex()];
@@ -96,7 +96,9 @@ namespace CourseRegistration
                     }
                 }
 
-                MessageBox.Show("Deleted course.");
+                MessageBox.Show("Course deleted successfully.");
+
+                RefreshCourse();
             }
         }
         public void ManageCourse_Close(object sender, EventArgs args)
@@ -116,7 +118,7 @@ namespace CourseRegistration
             lcCourses = CourseManager.GetAllCourses();
 
             //Display each courses
-            for(int i=0; i<lcCourses.Count; i++)
+            for (int i = 0; i < lcCourses.Count; i++)
             {
                 Course curCourse = lcCourses[i];
                 dgvCourses.Rows.Add(curCourse.Course_ID, curCourse.Course_Name, curCourse.GetFaculty().Faculty_Name, curCourse.Course_Code, curCourse.Course_Description);

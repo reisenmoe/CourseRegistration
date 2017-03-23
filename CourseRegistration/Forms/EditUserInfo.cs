@@ -23,11 +23,11 @@ namespace CourseRegistration
             //If editing my info
             if (cUser == GlobalApplication.cMyUser)
             {
-                this.Text = "My information";
+                this.Text = "My Profile";
             }
             else
             {
-                this.Text = cUser.FirstName + "'s information";
+                this.Text = cUser.FirstName + "'s Profile";
             }
 
             //Set initial values
@@ -45,39 +45,40 @@ namespace CourseRegistration
             //Define action for invalid results
             Action<string> onInvalidInput = (message) =>
             {
-                MessageBox.Show(message);
+                MessageBox.Show(message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
             };
 
             #region Checkers
             //Check if any invalid inputs
             if(string.IsNullOrEmpty(tbFirstName.Text))
             {
-                onInvalidInput("Please check your first name.");
+                onInvalidInput("First name is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(tbLastName.Text))
             {
-                onInvalidInput("Please check your last name.");
+                onInvalidInput("Last name is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(tbContact.Text))
             {
-                onInvalidInput("Please check your contact number.");
+                onInvalidInput("Contact number is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(tbAddress.Text))
             {
-                onInvalidInput("Please check your address.");
+                onInvalidInput("Address is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(tbEmail.Text))
             {
-                onInvalidInput("Please check your email.");
+                //add validation on email
+                onInvalidInput("Email is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(dtpDateOfBirth.Text))
             {
-                onInvalidInput("Please check your date of birth.");
+                onInvalidInput("Date of birth is a required field.");
                 return;
             }
             #endregion
@@ -100,7 +101,7 @@ namespace CourseRegistration
                                 u => u.ContactNumber, u => u.Address, u => u.DateOfBirth);
 
             //Show message
-            MessageBox.Show("Profile updated.");
+            MessageBox.Show("Profile updated successfully.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public void MyInfo_Close(object sender, EventArgs args)
         {

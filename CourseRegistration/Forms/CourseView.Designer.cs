@@ -54,9 +54,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "My courses";
+            this.label1.Text = "My Courses";
             // 
             // cbCourses
             // 
@@ -90,9 +90,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(16, 222);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 13);
+            this.label4.Size = new System.Drawing.Size(99, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Course description:";
+            this.label4.Text = "Course Description:";
             // 
             // label5
             // 
@@ -182,7 +182,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Close";
+            this.button1.Text = "&Cancel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.CourseView_Close);
             // 
@@ -252,7 +252,7 @@
             this.MaximizeBox = false;
             this.Name = "CourseView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "My courses";
+            this.Text = "My Courses";
             this.ResumeLayout(false);
             this.PerformLayout();
 

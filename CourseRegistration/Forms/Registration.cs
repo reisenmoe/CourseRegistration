@@ -23,7 +23,7 @@ namespace CourseRegistration
             //Get all roles
             lcRoles = RoleManager.GetAllRoles();
             //Populate combo box items
-            for(int i=0; i< lcRoles.Count; i++)
+            for (int i = 0; i < lcRoles.Count; i++)
             {
                 cbRole.Items.Add(lcRoles[i].Role_Name);
             }
@@ -40,50 +40,51 @@ namespace CourseRegistration
                 MessageBox.Show(message);
             };
 
+        
             #region Checker
-            if(UserManager.Exists(tbStudentID.Text) != null)
+            if (UserManager.Exists(tbStudentID.Text) != null)
             {
                 showMessage("This student ID already exists.");
                 return;
             }
-            if(string.IsNullOrEmpty(tbStudentID.Text))
+            if (string.IsNullOrEmpty(tbStudentID.Text))
             {
-                showMessage("Please check your student ID.");
+                showMessage("Username is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(tbPassword.Text))
             {
-                showMessage("Please check your password.");
+                showMessage("Password is a required field..");
                 return;
             }
             if (string.IsNullOrEmpty(tbFirstName.Text))
             {
-                showMessage("Please check your first name.");
+                showMessage("First name is a required field..");
                 return;
             }
             if (string.IsNullOrEmpty(tbLastName.Text))
             {
-                showMessage("Please check your last name.");
+                showMessage("Last name is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(tbContact.Text))
             {
-                showMessage("Please check your contact number.");
+                showMessage("Contact number is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(tbAddress.Text))
             {
-                showMessage("Please check your address.");
+                showMessage("Address is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(tbEmail.Text))
             {
-                showMessage("Please check your email.");
+                showMessage("Email is a required field.");
                 return;
             }
             if (string.IsNullOrEmpty(dtpDateOfBirth.Text))
             {
-                showMessage("Please check your date of birth.");
+                showMessage("Date of birth is a required field.");
                 return;
             }
             #endregion
@@ -104,9 +105,9 @@ namespace CourseRegistration
             //Get created user
             user = UserManager.Create(user);
             //If failed, show message
-            if(user == null)
+            if (user == null)
             {
-                showMessage("Failed to create new user.");
+                showMessage("Failed to create a new user.");
                 return;
             }
 
@@ -114,20 +115,20 @@ namespace CourseRegistration
             User_Role ur = new User_Role();
             ur.CreatedBy = GlobalApplication.cMyUser.User_ID;
             ur.ModifiedBy = ur.CreatedBy;
-            ur.Role_ID = lcRoles[cbRole.SelectedIndex].Role_ID;
+            ur.Role_ID = lcRoles[cbRole.SelectedIndex].Role_ID; ;
             ur.User_ID = user.User_ID;
             //Get created user_role
             ur = UserRoleManager.Create(ur);
             //If failed, show message and delete user
-            if(ur == null)
+            if (ur == null)
             {
                 UserManager.Delete(user);
-                showMessage("Failed to create user_role");
+                showMessage("Failed to create a user_role");
                 return;
             }
 
             //Show message
-            MessageBox.Show("Successfully registered new user: " + user.Student_ID);
+            MessageBox.Show("Successfully registered a new user: " + user.Student_ID);
 
             //Clear inputs
             ClearInputs();

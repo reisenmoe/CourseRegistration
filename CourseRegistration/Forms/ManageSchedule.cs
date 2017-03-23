@@ -21,12 +21,16 @@ namespace CourseRegistration
             InitializeComponent();
 
             //Set columns
-            dgvSchedules.Columns.Add("id", "id");
+            dgvSchedules.Columns.Add("Id", "Id");
             dgvSchedules.Columns.Add("Course Name", "Course Name");
             dgvSchedules.Columns.Add("Tutor Name", "Tutor Name");
             dgvSchedules.Columns.Add("Start Date", "Start Date");
             dgvSchedules.Columns.Add("End Date", "End Date");
             dgvSchedules.ToggleColumnSort(false);
+
+            FillGridView();
+
+
         }
 
         #region Button events
@@ -37,7 +41,7 @@ namespace CourseRegistration
         public void ManageSchedule_Add(object sender, EventArgs args)
         {
             //If there are no courses, return
-            if(CourseManager.GetCourseCount() == 0)
+            if (CourseManager.GetCourseCount() == 0)
             {
                 MessageBox.Show("There are no courses.");
                 return;
@@ -52,7 +56,7 @@ namespace CourseRegistration
         public void ManageSchedule_Edit(object sender, EventArgs args)
         {
             //Return if no cell is selected
-            if(!SelectedRow())
+            if (!SelectedRow())
             {
                 MessageBox.Show("Select a schedule first.");
                 return;
@@ -70,12 +74,12 @@ namespace CourseRegistration
         public void ManageSchedule_Delete(object sender, EventArgs args)
         {
             //Return if no cell is selected
-            if(!SelectedRow())
+            if (!SelectedRow())
             {
                 MessageBox.Show("Select a schedule first.");
                 return;
             }
-            
+
             //Confirm if user wants to delete this record
             if (MessageBox.Show("Are you sure you want to delete this schedule?", "Deleting Schedule", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -118,9 +122,11 @@ namespace CourseRegistration
             for (int i = 0; i < lcSchedules.Count; i++)
             {
                 Course_Schedule curSchedule = lcSchedules[i];
-                dgvSchedules.Rows.Add(curSchedule.CourseSchedule_ID, curSchedule.GetCourse().Course_Name, curSchedule.GetTutor(), curSchedule.DT_From, curSchedule.DT_To);
+                Course curCourse = curSchedule.GetCourse();
+                User curTutor = curSchedule.GetTutor();
+                dgvSchedules.Rows.Add(curSchedule.CourseSchedule_ID, curCourse.Course_Name, curTutor.FullName, curSchedule.DT_From, curSchedule.DT_To);
             }
-            
+
             dgvSchedules.Refresh();
         }
 

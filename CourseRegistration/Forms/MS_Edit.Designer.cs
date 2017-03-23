@@ -76,7 +76,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Close";
+            this.button1.Text = "&Cancel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Edit_Close);
             // 
@@ -109,12 +109,13 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 465);
+            this.button4.Location = new System.Drawing.Point(242, 465);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 19;
-            this.button4.Text = "Edit";
+            this.button4.Text = "&Save";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Edit_Edit);
             // 
             // dtpEnd
             // 

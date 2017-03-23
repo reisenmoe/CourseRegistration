@@ -25,7 +25,7 @@ namespace CourseRegistration
             InitializeComponent();
 
             //Set columns
-            dgvStudents.Columns.Add("id", "id");
+            dgvStudents.Columns.Add("Id", "Id");
             dgvStudents.Columns.Add("Full Name", "Full Name");
             dgvStudents.Columns.Add("Is Enrolled", "Is Enrolled");
             dgvStudents.ToggleColumnSort(false);
@@ -37,6 +37,9 @@ namespace CourseRegistration
             //Set current date times
             dtpStart.Value = cSelectedSchedule.DT_From;
             dtpEnd.Value = cSelectedSchedule.DT_To;
+
+            //Show all students
+            FillStudents(string.Empty);
         }
 
         #region Button events
@@ -47,9 +50,9 @@ namespace CourseRegistration
         public void Edit_Toggle(object sender, EventArgs args)
         {
             //Return if nothing selected
-            if(!SelectedRow())
+            if (!SelectedRow())
             {
-                MessageBox.Show("Select a student first.");
+                MessageBox.Show("Please select a student.");
                 return;
             }
 
@@ -80,6 +83,8 @@ namespace CourseRegistration
                 studentCourse.CreatedBy = GlobalApplication.cMyUser.User_ID;
                 studentCourse.ModifiedBy = GlobalApplication.cMyUser.User_ID;
                 studentCourse.User_ID = student.User_ID;
+                studentCourse.CourseSchedule_ID = cSelectedSchedule.CourseSchedule_ID;
+                studentCourse.Grade = "A+";
 
                 StudentCourseManager.Create(studentCourse);
 
@@ -132,7 +137,7 @@ namespace CourseRegistration
                 //Fill the course combo box
                 for (int i = 0; i < lcCourses.Count; i++)
                 {
-                    cbCourse.Items.Add(lcCourses[i]);
+                    cbCourse.Items.Add(lcCourses[i].Course_Name);
 
                     //Set selection
                     if (lcCourses[i].Course_ID.Equals(curCourseID))
@@ -140,9 +145,6 @@ namespace CourseRegistration
                         cbCourse.SelectedIndex = i;
                     }
                 }
-
-                //Set selection
-                cbCourse.SelectedIndex = 0;
             }
 
             //Refresh course
@@ -165,7 +167,7 @@ namespace CourseRegistration
                 //Fill the tutor combo box
                 for (int i = 0; i < lcTutors.Count; i++)
                 {
-                    cbTutor.Items.Add(lcTutors[i]);
+                    cbTutor.Items.Add(lcTutors[i].FullName);
 
                     //Set selection
                     if (lcTutors[i].User_ID.Equals(curTutorID))
@@ -185,15 +187,15 @@ namespace CourseRegistration
             dgvStudents.Rows.Clear();
 
             //Get all students within filter
-            lcStudents = UserManager.GetAllUsers(RoleTypes.Student).Where(u => u.FullName.ToLower().Contains(filter.ToLower())).ToList();
-            
+            lcStudents = UserManager.GetAllUsers(RoleTypes.Student).Where(u => u.FullName.ContainsIgnoreCase(filter)).ToList();
+
             //Fill rows
             for (int i = 0; i < lcStudents.Count; i++)
             {
                 User curUser = lcStudents[i];
                 dgvStudents.Rows.Add(curUser.User_ID, curUser.FullName, curUser.IsEnrolled(cSelectedSchedule));
             }
-            
+
             //Refresh students
             dgvStudents.Refresh();
         }

@@ -22,10 +22,10 @@ namespace CourseRegistration
             InitializeComponent();
 
             //Get list of course schedules and courses this user is enrolled on.
-            lcSchedules = ScheduleManager.GetSchedulesOf(GlobalApplication.cMyUser);
+            lcSchedules = ScheduleManager.GetSchedulesOf(GlobalApplication.cMyUser, RoleTypes.Student);
 
             //If there are schedules
-            if(lcSchedules.Count > 0)
+            if (lcSchedules.Count > 0)
             {
                 lcCourses = lcSchedules.ToCourses();
 

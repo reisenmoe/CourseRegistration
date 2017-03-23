@@ -9,7 +9,7 @@ namespace Renko
 {
     public static class MD5Encryption
     {
-        private static string privateKey = "courseregistration";
+        //private static string privateKey = "courseregistration";
         
 
         public static string Encrypt(string str)

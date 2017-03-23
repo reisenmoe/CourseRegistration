@@ -23,7 +23,7 @@ namespace CourseRegistration
             InitializeComponent();
 
             //Get course schedule list
-            lcSchedules = ScheduleManager.GetSchedulesOf(GlobalApplication.cMyUser);
+            lcSchedules = ScheduleManager.GetSchedulesOf(GlobalApplication.cMyUser, RoleTypes.Tutor);
 
             //If there are schedules
             if (lcSchedules.Count > 0)
@@ -44,18 +44,15 @@ namespace CourseRegistration
         #region Button events
         public void ViewStudents_OnChangeCourse(object sender, EventArgs args)
         {
-            //Clear grid view
-            ViewStudents_ClearGridView();
-
-            //Populate the grid view with index
-            ViewStudents_PopulateGridView(cbCourses.SelectedIndex);
+            //Refresh gridview
+            ViewStudents_Refresh();
         }
         public void ViewStudents_Apply(object sender, EventArgs args)
         {
             //If row not selected, return
-            if(!dgvStudentView.SelectedRow())
+            if (!dgvStudentView.SelectedRow())
             {
-                MessageBox.Show("Select a row first.");
+                MessageBox.Show("Please select a row.");
                 return;
             }
 
@@ -70,10 +67,10 @@ namespace CourseRegistration
             SharedManager.Update(sCourse, s => s.Grade, s => s.ModifiedDateTime);
 
             //Show message
-            MessageBox.Show("Updated grade.");
+            MessageBox.Show("Grade updated successfully", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Refresh grid view
-            dgvStudentView.Refresh();
+            ViewStudents_Refresh();
         }
         public void ViewStudents_Close(object sender, EventArgs args)
         {
@@ -82,6 +79,12 @@ namespace CourseRegistration
         #endregion
 
         #region Helper
+        public void ViewStudents_Refresh()
+        {
+            ViewStudents_ClearGridView();
+            ViewStudents_PopulateGridView(cbCourses.SelectedIndex);
+        }
+
         public void ViewStudents_ClearGridView()
         {
             dgvStudentView.DataSource = null;
@@ -105,7 +108,7 @@ namespace CourseRegistration
             dt.Columns.Add("Contact");
 
             //Set rows
-            for(int i=0; i< lcStudents.Count;i++)
+            for (int i = 0; i < lcStudents.Count; i++)
             {
                 Student_Course sc = lcStudents[i].GetStudentCourse(lcSchedules[cbCourses.SelectedIndex]);
                 dt.Rows.Add(lcStudents[i].FirstName, lcStudents[i].LastName, lcStudents[i].Student_ID, sc.Grade, lcStudents[i].Email, lcStudents[i].ContactNumber);

@@ -22,7 +22,7 @@ namespace CourseRegistration
             InitializeComponent();
 
             //Set columns
-            dgvUsers.Columns.Add("id", "id");
+            dgvUsers.Columns.Add("Id", "Id");
             dgvUsers.Columns.Add("Full Name", "Full Name");
             dgvUsers.Columns.Add("Role", "Role");
             dgvUsers.Columns.Add("Email", "Email");
@@ -59,6 +59,21 @@ namespace CourseRegistration
                 //Refresh users
                 FillUsers();
             });
+        }
+
+        public void ManageUser_Delete(object sender, EventArgs args)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this user?", "Delete user", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //Soft delete this user
+                User user = lcUsers[dgvUsers.SelectedRowIndex()];
+                user.IsActive = false;
+                SharedManager.Update(user, u => u.IsActive);
+
+                MessageBox.Show("Deleted user.");
+
+                FillUsers();
+            }
         }
         public void ManageUser_Close(object sender, EventArgs args)
         {
@@ -106,9 +121,9 @@ namespace CourseRegistration
                 lcUsers = UserManager.GetAllUsers(role.GetRoleType());
             else
                 lcUsers = UserManager.GetAllUsers(role.GetRoleType(), filter);
-            
+
             //Fill data grid view
-            for(int i=0; i<lcUsers.Count; i++)
+            for (int i = 0; i < lcUsers.Count; i++)
             {
                 User curUser = lcUsers[i];
                 Role curRole = curUser.GetRole();
